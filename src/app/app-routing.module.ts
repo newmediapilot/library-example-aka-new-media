@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {AuthComponent} from './auth/auth.component';
 import {LibraryComponent} from './auth/library/library.component';
 import {LoginComponent} from './login/login.component';
+import {CollectionComponent} from './auth/collection/collection.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'library',
         component: LibraryComponent
+      },
+      {
+        path: 'collection',
+        component: CollectionComponent
       }
     ]
   },

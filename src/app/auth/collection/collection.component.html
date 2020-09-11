@@ -1,0 +1,22 @@
+<h1 *ngIf="(library | async)">
+  {{ library.name }}
+</h1>
+
+<h2>Select a book:</h2>
+<table>
+  <thead>
+  <tr>
+    <td>bookId</td>
+    <td>title</td>
+    <td>totalPurchasedByLibrary</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of (collection | async)">
+    <td>{{ item.bookId }}</td>
+    <td>{{ item.title }}</td>
+    <td>{{ item.totalPurchasedByLibrary }}</td>
+  </tr>
+  </tbody>
+</table>
+

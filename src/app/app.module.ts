@@ -8,13 +8,15 @@ import {LibraryComponent} from './auth/library/library.component';
 import {LoginComponent} from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
+import { CollectionComponent } from './auth/collection/collection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     LibraryComponent,
-    LoginComponent
+    LoginComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,

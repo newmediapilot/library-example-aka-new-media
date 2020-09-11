@@ -1,3 +1,4 @@
+<h1>Select a library:</h1>
 <table>
   <thead>
   <tr>
@@ -12,7 +13,10 @@
     <td>{{library.libraryId}}</td>
     <td>{{library.name}}</td>
     <td>{{library.city}}</td>
-    <td><a>Access Link</a></td>
+    <td><a
+      routerLink="../collection"
+      [queryParams]="library">
+      Access</a></td>
   </tr>
   </tbody>
 </table>

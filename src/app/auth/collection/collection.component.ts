@@ -21,14 +21,31 @@ export class CollectionComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.library = this.apiService.getLibrary(params['libraryId']);
-
-      this.collection = this.apiService.getCollection(params['libraryId']).pipe(map((result: Array<object>) => {
-        return result.map((item) => {
-          return Object.assign(item, item['book']);
-        })
-      }));
+      let {libraryId} = params;
+      this.loadLibrary(libraryId);
+      this.loadCollection(libraryId);
     });
+  }
+
+  loadLibrary(id) {
+    this.library = this.apiService.getLibrary(id);
+  }
+
+  loadCollection(id) {
+    this.collection = this.apiService.getCollection(id).pipe(
+      map(this.flattenCollection),
+      map(this.filterCollection)
+    );
+  }
+
+  flattenCollection(result) {
+    return result.map((item) => {
+      return Object.assign(item, item['book']);
+    });
+  }
+
+  filterCollection(result) {
+    return result.filter(item => !!item['totalPurchasedByLibrary'])
   }
 
 }

@@ -1,1 +1,18 @@
-<p>library works!</p>
+<table>
+  <thead>
+  <tr>
+    <td>libraryId</td>
+    <td>name</td>
+    <td>city</td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let library of libraries | async">
+    <td>{{library.libraryId}}</td>
+    <td>{{library.name}}</td>
+    <td>{{library.city}}</td>
+    <td><a>Access Link</a></td>
+  </tr>
+  </tbody>
+</table>
